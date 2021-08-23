@@ -1,7 +1,7 @@
 //import { FaGithub } from "react-icons/fa";
 //import { FiX } from "react-icons/fi";
 import Image from "next/image";
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 import githubicon from "../../../public/githubicon.png";
 
 export function SingInButton() {
