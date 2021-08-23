@@ -1,0 +1,28 @@
+.sigInButton {
+  height: 3rem;
+  border-radius: 3rem;
+  background: var(--gray-850);
+  border: 0;
+  color: var(--white);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.2s;
+
+  img:first-child {
+    //before:svg
+    width: 20px;
+    margin-right: 1rem;
+  }
+
+  svg.closeIcon {
+    margin-left: 1rem;
+  }
+
+  transition: 0.2s;
+  &:hover {
+    filter: brightness(0.8);
+  }
+}
