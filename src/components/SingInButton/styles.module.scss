@@ -3,15 +3,17 @@
   border-radius: 3rem;
   background: var(--gray-850);
   border: 0;
-  color: var(--white);
+  padding: 0 1.5rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  color: var(--white);
+  font-weight: bold;
   transition: 0.2s;
 
-  img:first-child {
+  svg:first-child {
     //before:svg
     width: 20px;
     margin-right: 1rem;
