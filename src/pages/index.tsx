@@ -27,9 +27,9 @@ export default function Home({ product }: HomeProps) {
             </h1>
             <p>
               get access to all the publications <br />
-              <span>for 9999 per month</span>
+              <span>for {product.amount} per month</span>
             </p>
-            <SubscribeButton priceId="ff" />
+            <SubscribeButton priceId={product.priceId} />
           </section>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -44,11 +44,20 @@ export default function Home({ product }: HomeProps) {
 }
 //Trocar getServerSideProps por getStaticProps =
 export const getStaticProps: GetStaticProps = async () => {
-  console.log("ok");
+  const price = await stripe.prices.retrieve("price_1JU0nvIf5W7wkdGbAcSMMuMR");
+
+  const product = {
+    priceId: price.id,
+    amount: new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(price.unit_amount / 100), //valor do produto vem em centavos, por isso tem que dividir
+  };
 
   return {
     props: {
-      nome: "sabrina",
+      product,
     },
+    revalidate: 60 * 60 * 24, //valor em segundos
   };
 };
