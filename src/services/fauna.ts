@@ -1,5 +1,7 @@
 import { Client } from "faunadb";
-
-export const fauna = new Client({
+interface IClient{
+  email: string;
+}
+export const fauna:= new Client({
   secret: process.env.FAUNADB_SECRETY_KEY,
 });
